@@ -42,9 +42,9 @@ class Objective:
     
     def __call__(self, trial: optuna.Trial):
         params = {
-            'n_estimators': trial.suggest_discrete_uniform('n_estimators', 100, 500, 10),
-            'max_depth': trial.suggest_discrete_uniform('max_depth', 2, 10, 1),
-            'random_state': trial.suggest_discrete_uniform('random_state', 0, 10, 2)
+            'n_estimators': trial.suggest_int('n_estimators', 100, 500, 10),
+            'max_depth': trial.suggest_int('max_depth', 2, 10, 1),
+            'random_state': trial.suggest_int('random_state', 0, 10, 2)
         }
         model = RandomForestClassifier(**params)
         cv = StratifiedKFold(n_splits=5)
