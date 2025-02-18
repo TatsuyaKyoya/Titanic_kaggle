@@ -1,0 +1,12 @@
+PassengerId : <class 'numpy.int64'> : 1
+Survived : <class 'numpy.int64'> : 0
+Pclass : <class 'numpy.int64'> : 3
+Name : <class 'str'> : Braund, Mr. Owen Harris
+Sex : <class 'str'> : male
+Age : <class 'numpy.float64'> : 22.0
+SibSp : <class 'numpy.int64'> : 1
+Parch : <class 'numpy.int64'> : 0
+Ticket : <class 'str'> : A/5 21171
+Fare : <class 'numpy.float64'> : 7.25
+Cabin : <class 'float'> : nan
+Embarked : <class 'str'> : S
