@@ -17,7 +17,7 @@ def main():
     test_path = dir / 'p_test.csv'
     df = pd.read_csv(test_path)
     data, passid = split_df(df, 'PassengerId')
-    modelfile = 'models/2025021702_macc1.0_RF.pkl'
+    modelfile = 'models/2025021937_macc1.0_RF.pkl'
     modelpath = dir/modelfile
     model = pickle.load(open(modelpath, 'rb'))
     pred = model.predict(data.to_numpy())
