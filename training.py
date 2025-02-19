@@ -42,9 +42,9 @@ class Objective:
     
     def __call__(self, trial: optuna.Trial):
         params = {
-            'n_estimators': trial.suggest_int('n_estimators', 100, 500, 10),
-            'max_depth': trial.suggest_int('max_depth', 2, 10, 1),
-            'random_state': trial.suggest_int('random_state', 0, 10, 2)
+            'n_estimators': trial.suggest_int('n_estimators', 100, 500, step=10),
+            'max_depth': trial.suggest_int('max_depth', 2, 10, step=1),
+            'random_state': trial.suggest_int('random_state', 0, 10, step=2)
         }
         model = RandomForestClassifier(**params)
         cv = StratifiedKFold(n_splits=5)
@@ -54,7 +54,7 @@ class Objective:
 def hypara_tuning(data, target):
     study = optuna.create_study(direction='maximize')
     objective = Objective(data, target)
-    study.optimize(objective)
+    study.optimize(objective, n_trials=500)
     return study.best_params, study.best_value
 
 def save_model(model, score, model_name, params):
